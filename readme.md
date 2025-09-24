@@ -1,4 +1,4 @@
-# ![ecole](./img/images.jpeg) Projets en C 
+# <img src="./img/images.jpeg " width="20"> Projets en C 
 
 ## Description
 Ce dépôt contient plusieurs projets réalisés en ** c ** dans le cadre d'un groupe d'étude.
@@ -44,20 +44,20 @@ make
 
 ## Objectifs pédagogiques
 
-[point noir](./img/Point_black.png)Comprendre les structures de données
+<img src="./img/Point_black.png " width="20">Comprendre les structures de données
 
-[point noir](./img/Point_black.png)Maîtriser la programmation du langage C
+<img src="./img/Point_black.png " width="20">Maîtriser la programmation du langage C
 
 ## Membres du groupe
 
-[point noir](./img/Point_black.png)Ngono Danielle Stéphanie Estelle
+<img src="./img/Point_black.png " width="20">Ngono Danielle Stéphanie Estelle
 
-[point noir](./img/Point_black.png)Belkann Emmanuel Peniel : projet 2 et 7
+<img src="./img/Point_black.png " width="20">Belkann Emmanuel Peniel : projet 2 et 7
 
-[point noir](./img/Point_black.png)Olinga Nyaya Flamel Laurier
+<img src="./img/Point_black.png " width="20">Olinga Nyaya Flamel Laurier
 
-[point noir](./img/Point_black.png)Megah Nyaa Cindy Claire : projet 1 et 3
+<img src="./img/Point_black.png " width="20">Megah Nyaa Cindy Claire : projet 1 et 3
 
-[point noir](./img/Point_black.png)Dzelamonyuy Claudette Nyuykinghan : projet 9
+<img src="./img/Point_black.png " width="20">Dzelamonyuy Claudette Nyuykinghan : projet 9
 
-[point noir](./img/Point_black.png) Nkoum Franck Stéphane : projet 4 et 5
+<img src="./img/Point_black.png " width="20"> Nkoum Franck Stéphane : projet 4 et 5
