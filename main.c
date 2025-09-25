@@ -18,6 +18,21 @@ void Median(int t, int tab[t]){
     }
 }
 
+void Produit_vectoriel(int u, int pvecteur[u]){
+    int i = 0;
+    int m;
+    printf("entrer le nombre de vecteur : ");
+    scanf("%d", &m);
+    for (i = 0; i <= m; i++){
+        printf("entrer la taille du vecteur : ");
+        scanf("%d", &u);
+        printf("entrer le vecteur : ");
+        scanf("%d", &pvecteur[u]);
+        pvecteur[u] =   pvecteur[u]*pvecteur[u] ;
+    }
+
+}
+
 void Vecteur_Matrice(int n, int vecteur[n], int j, int i, int matrice[i][j])
 {
    printf("entrer la taille du vecteur\n");
@@ -40,12 +55,13 @@ void Vecteur_Matrice(int n, int vecteur[n], int j, int i, int matrice[i][j])
 
 int main()
 {
-    int choix, b, c, d, t;
-    int vecteur[d], matrice[b][c], tab[t];
+    int choix, b, c, d, t, u;
+    int vecteur[d], matrice[b][c], tab[t], pvecteur[u];
     do
     {
         printf("--Menu--\n");
         printf("6.projet 6\n");
+        printf("8.projet 8\n");
         printf("9.projet 9\n");
         printf("0.quitter\n");
         printf("entrer votre choix\n");
@@ -54,6 +70,8 @@ int main()
         {
         case 6:
         Median(t, tab[t]);
+        case 8 :
+        Produit_vectoriel(u, pvecteur[u]);
         case 9:
             Vecteur_Matrice(d, vecteur[d], b, c, matrice[b][c] );
              break;
