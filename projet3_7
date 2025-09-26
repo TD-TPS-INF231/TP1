@@ -1,0 +1,181 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_SIZE 10
+
+// Structure pour une matrice
+typedef struct {
+    int lignes;
+    int colonnes;
+    int elements[MAX_SIZE][MAX_SIZE];
+} Matrice;
+
+// Structure pour un tableau
+typedef struct {
+    int taille;
+    int elements[MAX_SIZE];
+} Tableau;
+
+// Fonction pour saisir une matrice
+void saisirMatrice(Matrice *m) {
+    int i, j;
+    printf("Nombre de lignes (max %d) : ", MAX_SIZE);
+    scanf("%d", &m->lignes);
+    printf("Nombre de colonnes (max %d) : ", MAX_SIZE);
+    scanf("%d", &m->colonnes);
+    
+    printf("Saisir les elements de la matrice :\n");
+    for(i = 0; i < m->lignes; i++) {
+        for(j = 0; j < m->colonnes; j++) {
+            printf("Element [%d][%d] : ", i, j);
+            scanf("%d", &m->elements[i][j]);
+        }
+    }
+}
+
+// Fonction pour afficher une matrice
+void afficherMatrice(Matrice m) {
+    int i, j;
+    printf("\nMatrice %dx%d :\n", m.lignes, m.colonnes);
+    for(i = 0; i < m.lignes; i++) {
+        for(j = 0; j < m.colonnes; j++) {
+            printf("%4d", m.elements[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+// Fonction pour multiplier deux matrices
+int multiplierMatrices(Matrice m1, Matrice m2, Matrice *resultat) {
+    int i, j, k;
+    
+    // Vérifier si la multiplication est possible
+    if(m1.colonnes != m2.lignes) {
+        printf("Erreur : Les dimensions ne permettent pas la multiplication\n");
+        printf("Le nombre de colonnes de la premiere matrice doit egaler le nombre de lignes de la seconde.\n");
+        return 0;
+    }
+    
+    resultat->lignes = m1.lignes;
+    resultat->colonnes = m2.colonnes;
+    
+    // Calcul du produit
+    for(i = 0; i < m1.lignes; i++) {
+        for(j = 0; j < m2.colonnes; j++) {
+            resultat->elements[i][j] = 0;
+            for(k = 0; k < m1.colonnes; k++) {
+                resultat->elements[i][j] += m1.elements[i][k] * m2.elements[k][j];
+            }
+        }
+    }
+    return 1;
+}
+
+// Fonction pour saisir un tableau
+void saisirTableau(Tableau *t) {
+    int i;
+    printf("Taille du tableau (max %d) : ", MAX_SIZE);
+    scanf("%d", &t->taille);
+    
+    if(t->taille > MAX_SIZE) {
+        printf("Taille trop grande! Reduit a %d.\n", MAX_SIZE);
+        t->taille = MAX_SIZE;
+    }
+    
+    printf("Saisir les elements du tableau :\n");
+    for(i = 0; i < t->taille; i++) {
+        printf("Element [%d] : ", i);
+        scanf("%d", &t->elements[i]);
+    }
+}
+
+// Fonction pour afficher un tableau
+void afficherTableau(Tableau t) {
+    int i;
+    printf("\nTableau de taille %d :\n", t.taille);
+    for(i = 0; i < t.taille; i++) {
+        printf("%d ", t.elements[i]);
+    }
+    printf("\n");
+}
+
+// Fonction pour inverser un tableau
+void inverserTableau(Tableau *t) {
+    int i, temp;
+    for(i = 0; i < t->taille / 2; i++) {
+        temp = t->elements[i];
+        t->elements[i] = t->elements[t->taille - 1 - i];
+        t->elements[t->taille - 1 - i] = temp;
+    }
+}
+
+// Fonction pour afficher le menu
+void afficherMenu() {
+    printf("\n=== MENU PRINCIPAL ===\n");
+    printf("1. Multiplier deux matrices\n");
+    printf("2. Inverser un tableau\n");
+    printf("3. Quitter\n");
+    printf("Votre choix : ");
+}
+
+int main() {
+    int choix;
+    Matrice mat1, mat2, resultat;
+    Tableau tab;
+    
+    printf("Programme de calcul matriciel et manipulation de tableaux\n");
+    printf("Developpe par un etudiant en programmation\n");
+    
+    do {
+        afficherMenu();
+        scanf("%d", &choix);
+        
+        switch(choix) {
+            case 1:
+                printf("\n=== MULTIPLICATION DE MATRICES ===\n");
+                
+                printf("\nMatrice 1 :\n");
+                saisirMatrice(&mat1);
+                
+                printf("\nMatrice 2 :\n");
+                saisirMatrice(&mat2);
+                
+                printf("\nMatrice 1 :");
+                afficherMatrice(mat1);
+                
+                printf("\nMatrice 2 :");
+                afficherMatrice(mat2);
+                
+                if(multiplierMatrices(mat1, mat2, &resultat)) {
+                    printf("\nResultat de la multiplication :");
+                    afficherMatrice(resultat);
+                }
+                break;
+                
+            case 2:
+                printf("\n=== INVERSION DE TABLEAU ===\n");
+                saisirTableau(&tab);
+                
+                printf("\nTableau original :");
+                afficherTableau(tab);
+                
+                inverserTableau(&tab);
+                
+                printf("\nTableau inverse :");
+                afficherTableau(tab);
+                break;
+                
+            case 3:
+                printf("Merci d'avoir utilise ce programme! Au revoir!\n");
+                break;
+                
+            default:
+                printf("Choix invalide! Veuillez choisir 1, 2 ou 3.\n");
+                // vider le buffet d'entrée
+                while(getchar() != '\n');
+                break;
+        }
+    } while(choix != 3);
+    
+    return 0;
+}
