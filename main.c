@@ -58,11 +58,50 @@ int main() {
         //saut de ligne apres chaque ligne de la matrice pour la mise en page
         printf("\n");
     }
+    //RECHERCHE SEQUENTIELLE DANS UN TABLEAU
+    //---etape 1 :initialisation et declaration des variables---
+    // 1. declarattion et initialsation du tableau 
+    int tableau[] = {22, 10, 5, 8, 17, 30};
+    // 2. calcul ou definition de la taille du tableau (nbre d'elements)
+    //sizeof(tableau) donne la taille en octets du tableau
+    //sizeof(tableau[0]) donne la taille en octets d'un element du tableau
+    //la division des deux donne le nbre d'elements dans le tableau
+    int taille = sizeof(tableau) / sizeof(tableau[0]);
+    // 3. declaration des variables de controle 
+    int Recherche; //l'element a rechercher saiasi par l'utilisateur
+    int trouve = 0; //flag pour indiquer si l'element a ete trouve (0=non, 1=oui)
+    int index = -1; //l'indice ou l'element a ete trouve (-1 est la valur initiale par convention)
+    int i; //variable pour les boucles
+    printf("---Programme de recherche sequentielle dans un tableau---\n");
+    //Affichage du tableau pour reference
+    printf("Tableau : {");
+    for(i=0; i<taille; i++){
+        printf("%d", tableau[i]);
+        if(i < taille -1){
+            printf(", "); //ajoute une virgule entre les elements sauf apres le dernier
+        }
+    }
+    printf("}\n");
+    //---etape 2 : saisie de l'element a rechercher---
+    printf("\nEntrez l valeur que vous souhaiter rechercher dans le tableau :\n");
+    scanf("%d", &Recherche);
+    //---etape 3 : execution de la recherche sequentielle---
+    printf("\n---Debut de la recherche ---\n");
+    for(i=0; i<taille; i++){
+        if(tableau[i] == Recherche){
+            trouve = 1; //met a jour le flag pour indiquer que l'element a ete trouve
+            index = i; //enregistre l'indice ou l'element a ete trouve
+            break; //sort de la boucle car l'element a ete trouve
+        }
+    }
+    //---etape 4 : affichage du resultat de la recherche---
+    printf("Fin de la recherche .\n");
+    if(trouve==1){
+        //la condition est vrai lelement a ete trouve 
+        printf("\nREesultat : lelement %d a ete trouve a l'indice %d du tableau.\n", Recherche, index);
+    } else {
+        //la condition est fausse l'element n'a pas ete trouve
+        printf("\nResultat : lelement %d n'a pas ete trouve dans le tableau.\n", Recherche);
+    }
     return 0;
-
-
-
-
-
-
 }
