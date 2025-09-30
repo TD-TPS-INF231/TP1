@@ -54,7 +54,7 @@ make
 
 <img src="./img/Point_black.png " width="20">Belkann Emmanuel Peniel : projet 2 et 7
 
-<img src="./img/Point_black.png " width="20">Olinga Nyaya Flamel Laurier
+<img src="./img/Point_black.png " width="20">Olinga Nyaya Flamel Laurier 8
 
 <img src="./img/Point_black.png " width="20">Megah Nyaa Cindy Claire : projet 1 et 3
 
