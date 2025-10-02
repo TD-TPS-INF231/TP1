@@ -1,0 +1,81 @@
+#include <stdio.h>
+
+#define N 3 // Taille du vecteur
+#define M 2 // Nombre de colonnes de la matrice
+
+// Fonction pour le produit vecteur × matrice
+void produit_vecteur_matrice(int vecteur[], int matrice[N][M], int resultat[]) {
+    for (int j = 0; j < M; j++) {
+        resultat[j] = 0;
+        for (int i = 0; i < N; i++) {
+            resultat[j] += vecteur[i] * matrice[i][j];
+}
+}
+}
+
+// Fonction pour afficher un vecteur
+void afficher_vecteur(int vecteur[], int taille) {
+    printf("[ ");
+    for (int i = 0; i < taille; i++) {
+        printf("%d ", vecteur[i]);
+}
+    printf("]\n");
+}
+
+// Fonction pour afficher le menu
+void afficher_menu() {
+    printf("\n=== MENU PRINCIPAL ===\n");
+    printf("1. Option 1\n");
+    printf("2. Option 2\n");
+    printf("3. Option 3\n");
+    printf("4. Produit vecteur × matrice\n");
+    printf("0. Quitter\n");
+    printf("Choix: ");
+}
+
+int main() {
+    int choix;
+
+    // Définition du vecteur et de la matrice
+    int vecteur[N] = {2, 3, 4};
+    int matrice[N][M] = {
+        {1, 5},
+        {2, 6},
+        {3, 7}
+};
+    int resultat[M];
+
+    do {
+        afficher_menu();
+        scanf("%d", &choix);
+
+        switch (choix) {
+            case 1:
+                printf("Option 1 sélectionnée.\n");
+                break;
+            case 2:
+                printf("Option 2 sélectionnée.\n");
+                break;
+            case 3:
+                printf("Option 3 sélectionnée.\n");
+                break;
+            case 4:
+                produit_vecteur_matrice(vecteur, matrice, resultat);
+                printf("Résultat du produit vecteur × matrice: ");
+                afficher_vecteur(resultat, M);
+                break;
+            case 0:
+                printf("Au revoir!\n");
+                break;
+            default:
+                printf("Choix invalide. Réessaie.\n");
+}
+
+} while (choix!= 0);
+
+    return 0;
+}
+
+
+
+	
